@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frutería Don Erick</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    
+    #contenedor-logo-video {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #logo-principal {
+      width: 200px;
+      transition: transform 1s ease;
+    }
+
+    #video-promocional {
+      display: none;
+      width: 80%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    #btn-musica {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Música de fondo -->
+  <audio id="musica-fondo" autoplay loop>
+    <source src="audio/Cómo Dejar de Amarte-444377ad5585d89a33940ccb930e6594.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+  <button onclick="toggleMusica()" id="btn-musica">🔊 Música</button>
+  <header>
+    <head>
+  <!-- Otros elementos del head -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("formularioPago").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const metodo = document.getElementById("metodoPago").value;
+
+        if (!nombre || !correo || !metodo) {
+          document.getElementById("mensajeConfirmacion").textContent = "Por favor completa todos los campos.";
+          return;
+        }
+
+        switch (metodo) {
+          case "Transferencia":
+            window.location.href = "https://link.mercadopago.cl/fruteriaerick";
+            break;
+          case "Tarjeta":
+            window.location.href = "https://link.mercadopago.cl/fruteriaerick";
+            break;
+          case "Efectivo":
+            window.location.href = "https://tusucursal.cl/instrucciones-pago-efectivo";
+            break;
+          default:
+            document.getElementById("mensajeConfirmacion").textContent = "Método de pago no válido.";
+        }
+      });
+    });
+  </script>
+</head>
+    <h1>
+      <img src="img/IMG-20250806-WA0007.jpg" alt="Logo Frutería" id="logo-fruteria">
+    </h1>
+  </header>
+ <!-- 🎥 Logo y video -->
+  <div id="contenedor-logo-video" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;text-align:center;padding:20px;">
+    <video id="video-promocional" src="video/2025-11-05-223359804.mp4" playsinline loop style="width:80%;max-width:450px;display:block;"></video>
+    <button id="btn-sonido-video" style="margin-top:12px;">🔊 Sonido original</button>
+
+    <script>
+      (function(){
+        const video = document.getElementById('video-promocional');
+        const btn = document.getElementById('btn-sonido-video');
+        if (!video || !btn) return;
+
+        // Mantener inicialmente silenciado para permitir autoplay en algunos navegadores,
+        // pero ofrecer botón para activar el sonido original.
+        video.muted = true;
+        video.volume = 0.6;
+        video.play().catch(()=>{});
+
+        btn.addEventListener('click', () => {
+          if (video.muted) {
+            video.muted = false;
+            btn.textContent = '🔇 Silenciar video';
+            // intentar reproducir con sonido (si el navegador lo permite)
+            video.play().catch(()=>{});
+          } else {
+            video.muted = true;
+            btn.textContent = '🔊 Sonido original';
+          }
+        });
+      })();
+    </script>
+  </div>
+
+  <script>
+    // Centrar y reproducir video al cargar; animar el logo si existe (id en tu header: "logo-fruteria")
+    window.addEventListener('load', () => {
+      const logo = document.getElementById('logo-fruteria');
+      const video = document.getElementById('video-promocional');
+      if (!video) return;
+      video.muted = true;
+      video.playsInline = true;
+      video.loop = true;
+      video.style.display = 'block';
+      video.play().catch(() => { /* autoplay bloqueado: silencioso */ });
+      // pequeña animación del logo si está presente
+      setTimeout(() => {
+        if (logo) logo.style.transform = 'translateY(-10px)';
+      }, 150);
+    });
+  </script>
+
+  <!-- 🧠 Script -->
+  <script>
+    const musica = document.getElementById('musica-fondo');
+    musica.volume = 0.2;
+
+    const btnMusica = document.getElementById('btn-musica');
+    function toggleMusica() {
+      if (musica.paused) {
+        musica.play();
+        btnMusica.textContent = '🔊 Música';
+      } else {
+        musica.pause();
+        btnMusica.textContent = '🔇 Silencio';
+      }
+    }
+
+    function mostrarVideo() {
+      const logo = document.getElementById('logo-principal');
+      const video = document.getElementById('video-promocional');
+
+      logo.style.transform = 'translateX(-200px)';
+      video.style.display = 'block';
+      video.play();
+    }
+  </script>
+
+</body>
+</html>
+
+  <a href="https://www.whatsapp.com/?lang=es" target="_blank" id="whatsapp-button" title="Contáctanos por WhatsApp">
+  <h1>
+      <img src="img/WhatsApp png icona 1.png" alt="Icono WhatsApp para contactar por chat" id="icono-whatsapp" width="50" height="50" style="object-fit:contain;">
+    </h1>
+</a>
+  <button id="toggle-theme">🌙 Cambiar modo</button>
+
+  <
+
+  <div class="banner-rotador" id="bannerRotador">
+    <div class="slide">🍊 Descuento en naranjas - 20% OFF</div>
+    <div class="slide">🍎 Manzanas frescas - 3x2</div>
+    <div class="slide">📦 Envío gratis sobre $20.000</div>
+  </div>
+<div class="producto" data-categoria="citrico">
+  <h3>🍊 Naranja</h3>
+  <p>Jugosa y fresca</p>
+</div>
+
+<div class="producto" data-categoria="tropical">
+  <h3>🥭 Mango</h3>
+  <p>Dulce y maduro</p>
+</div>
+
+<div class="producto" data-categoria="estacion">
+  <h3>🍎 Manzana</h3>
+  <p>De temporada</p>
+</div>
+  <div class="filtros-categorias">
+  <button onclick="filtrarCategoria('todas')">🍇 Todas</button>
+  <button onclick="filtrarCategoria('citrico')">🍊 Cítricos</button>
+  <button onclick="filtrarCategoria('tropical')">🥭 Tropicales</button>
+  <button onclick="filtrarCategoria('estacion')">🍎 De estación</button>
+</div>
+
+
+  <div id="productos" class="productos"></div>
+
+  <div class="contenedor-principal">
+    <div class="carrito-section">
+      <h2>🛒 Tu carrito</h2>
+      <ul id="carrito"></ul>
+      <p id="total"></p>
+    </div>
+
+    <div class="pago-section">
+      <p class="aviso-privacidad">🔐 Tus datos serán usados solo para procesar tu compra. No serán compartidos.</p>
+      <h2>💳 Finalizar compra</h2>
+      <form id="formularioPago" class="pago">
+        <label>Nombre:</label><br />
+        <input type="text" id="nombre" required /><br />
+
+        <label>Correo electrónico:</label><br />
+        <input type="email" id="correo" required /><br />
+
+        <label>Método de pago:</label><br />
+        <select id="metodoPago" required>
+          <option value="">Selecciona</option>
+          <option value="Transferencia">Transferencia</option>
+          <option value="Tarjeta">Tarjeta de crédito/débito</option>
+          <option value="Efectivo">Pago en tienda</option>
+        </select><br /><br />
+
+        <button type="submit">Confirmar compra</button>
+      </form>
+
+      
+      <p id="mensajeConfirmacion" class="confirmacion"></p>
+    </div>
+  </div>
+
+  <button onclick="vaciarCarrito()" class="vaciar">Vaciar carrito</button>
+
+  
+
+  <footer class="contacto">
+    <h3>📍 Nuestra dirección</h3>
+    <p>Santa Cruz 863, Traiguen, Chile</p>
+
+    <div class="mapa-buscador">
+      <div class="buscador">
+        <input id="input-direccion" type="search"
+          value="Santa Cruz 863, Traiguén, Chile"
+          placeholder="Busca una dirección, ej. Santa Cruz 863, Traiguén" />
+        <button id="btn-buscar">Buscar</button>
+      </div>
+
+      <div class="mapa-contenedor">
+        <iframe
+          id="iframe-mapa"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-72.67227%2C-38.2516%2C-72.66827%2C-38.2476&layer=mapnik&marker=-38.2496%2C-72.67027"
+          width="20%"
+          height="450"
+          style="border:0;"
+          loading="lazy"
+          title="Mapa - Santa Cruz 863, Traiguén"></iframe>
+        <p id="mapa-mensaje" class="mapa-mensaje"></p>
+      </div>
+    </div>
+    <!-- Sección de comentarios -->
+  <h2>🍍 Opiniones de nuestros clientes</h2>
+  <form id="commentForm">
+    <input type="text" id="userName" placeholder="Tu nombre" required />
+    <textarea id="userComment" placeholder="Escribe tu comentario" required></textarea>
+    <label for="userRating">Puntuación:</label>
+    <select id="userRating" required>
+      <option value="1">⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="5">⭐⭐⭐⭐⭐</option>
+    </select>
+    <button type="submit">Enviar</button>
+  </form>
+  <div id="commentsContainer"></div>
+  <button id="borrarComentarios" class="vaciar">🗑️ Borrar todos los comentarios</button>
+
+    <h3>📱 Síguenos en redes sociales</h3>
+    <ul class="redes">
+      <li><a href="https://www.facebook.com/tu-fruteria" target="_blank">Facebook</a></li>
+      <li><a href="https://www.instagram.com/eric_mondaca/" target="_blank">Instagram</a></li>
+      <li><a href="https://wa.me/56912345678" target="_blank">WhatsApp</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+<!-- Al final del body, justo antes de cerrar -->
+<script>
+  const toggleBtn = document.getElementById('toggle-theme');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    toggleBtn.textContent = isDark ? '☀️ Cambiar modo' : '🌙 Cambiar modo';
+    localStorage.setItem('modoOscuro', isDark);
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const modoGuardado = localStorage.getItem('modoOscuro') === 'true';
+    if (modoGuardado) {
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️ Cambiar modo';
+    }
+  });
+</script>
+</html>
